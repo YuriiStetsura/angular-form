@@ -1,0 +1,48 @@
+<div class="container">
+  <form class="form-control" [formGroup]="reactiveForm">
+    <h1>Reactive Form</h1>
+
+    <div>
+      <label>Username</label>
+      <input type="text" placeholder="username" formControlName="username">
+      <div
+        class="validation"
+        *ngIf="reactiveForm.get('username')?.invalid && reactiveForm.get('username')?.touched"
+      >
+        <small *ngIf="reactiveForm.get('username')?.errors?.required">Поле не повинно бути пустим</small>
+        <small *ngIf="reactiveForm.get('username')?.errors?.minlength">Ви ввели замалу к-сть символів</small>
+        <small *ngIf="reactiveForm.get('username')?.errors?.maxlength">
+          Максимальна к-сть символів: {{ reactiveForm.get('username')?.errors?.maxlength.requiredLength }}
+        </small>
+
+      </div>
+    </div>
+
+    <div>
+      <label>Password</label>
+      <input type="password" placeholder="password" formControlName="password">
+      <div class="validation"
+           *ngIf="reactiveForm.get('password')?.invalid && reactiveForm.get('password')?.touched"
+      >
+        <small *ngIf="reactiveForm.get('password')?.errors?.required">Поле не повинно бути пустим</small>
+        <small *ngIf="reactiveForm.get('password')?.errors?.onlyNumberOrWord">Тільки цифри або букви</small>
+      </div>
+    </div>
+
+    <div formArrayName="emails">
+      <h3>Your email</h3>
+      <div *ngFor="let control of emailFormArray.controls; let idx = index">
+        <input type="text" placeholder="email" formControlName="idx">
+        <button class="btn" (click)="removeControl(idx)">&times;</button>
+        <pre>{{ emailFormArray.at(0).value | json }}</pre>
+        <pre>{{ idx }}</pre>
+      </div>
+      <button class="btn" type="button" (click)="addEmail()">Add email</button>
+    </div>
+
+    <button type="submit" class="btn" (click)="onSubmit()" [disabled]="reactiveForm.invalid">Send</button>
+
+  </form>
+</div>
+
+
