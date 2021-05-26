@@ -34,8 +34,6 @@
       <div *ngFor="let control of emailFormArray.controls; let idx = index">
         <input type="text" placeholder="email" formControlName="idx">
         <button class="btn" (click)="removeControl(idx)">&times;</button>
-        <pre>{{ emailFormArray.at(0).value | json }}</pre>
-        <pre>{{ idx }}</pre>
       </div>
       <button class="btn" type="button" (click)="addEmail()">Add email</button>
     </div>

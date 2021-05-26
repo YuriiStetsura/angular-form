@@ -31,7 +31,7 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
-    console.log(this.reactiveForm.get('emails')?.value)
+    console.log(this.reactiveForm)
   }
 
   addEmail() {
