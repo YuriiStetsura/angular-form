@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MyValidators} from "../validators/validators";
 
 @Component({
-  selector: 'app-reactive-form',
-  templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.scss']
+  selector: 'app-new-form',
+  templateUrl: './new-form.component.html',
+  styleUrls: ['./new-form.component.scss']
 })
-export class ReactiveFormComponent implements OnInit {
+export class NewFormComponent implements OnInit {
   reactiveForm!: FormGroup
   get emailFormArray() {
     return this.reactiveForm.get('emails') as FormArray;
@@ -29,7 +29,6 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
   addEmail() {
@@ -50,6 +49,7 @@ export class ReactiveFormComponent implements OnInit {
   onSubmit() {
     const formData = {...this.reactiveForm.value}
     console.log(formData)
+
     this.reactiveForm.reset()
     this.clearFormArray(this.emailFormArray)
   }

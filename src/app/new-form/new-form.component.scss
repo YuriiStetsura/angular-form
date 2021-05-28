@@ -107,32 +107,17 @@
       position: absolute;
       top: 15px;
       right: 55px;
-      &-one-true {
+      &-one {
         @extend %eyes-big;
         margin-right: 4px;
         &::before {
           @extend %eyes-small;
         }
       }
-      &-one-false {
-        @extend %eyes-big;
-        margin-right: 4px;
-        &::before {
-          @extend %eyes-small;
-          top: 8px;
-        }
-      }
-      &-second-true {
+      &-second {
         @extend %eyes-big;
         &::before {
           @extend %eyes-small;
-        }
-      }
-      &-second-false {
-        @extend %eyes-big;
-        &::before {
-          @extend %eyes-small;
-          top: 8px;
         }
       }
     }
@@ -179,7 +164,7 @@
   &:enabled {
     background: #373737;
     border-color: rgb(75, 191, 46);
-    box-shadow: 0px 0px 10px #6EA2DE;
+    box-shadow: 0px 0px 10px rgb(75, 191, 46);
     color: #B7B7B7;
     font-size: 17px;
     cursor: pointer;
@@ -191,12 +176,12 @@
     }
   }
   &-dynamic {
-    width: 60px;
+    width: 50px;
     height: 40px;
-    color: #ffe7e7;
+    color: white;
     border-radius: 30px;
     border: none;
-    background: #a02c38;
+    background: #373737;
     box-shadow: 0px 0px 10px rgb(232, 104, 104);
     cursor: pointer;
   }
